@@ -1,10 +1,5 @@
 {
     "java.project.sourcePaths": [
-        "java/src/popcorn",
-        "java/src"
-    ],
-    "java.project.outputPath": "bin",
-    "java.project.referencedLibraries": [
-        "lib/**/*.jar"
+        "java/src/popcorn/popcorn"
     ]
 }

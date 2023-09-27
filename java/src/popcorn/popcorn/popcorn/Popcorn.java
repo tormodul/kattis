@@ -1,8 +1,6 @@
 package popcorn;
 
-// This is a solution that does NOT work, only the python version
-
-
+// This is a solution that does NOT work, only the
 import java.util.Scanner;
 
 public class Popcorn {
