@@ -65,49 +65,26 @@ public class BasicProgramming2 {
                 System.out.println(a[n / 2 - 1] + " " + a[n / 2]);
             }
         } else if (t == 5) {
-            // Case 5: Use counting sort to sort values in the range [100, 999]
-            int[] sorted = countingSortInRange(a, 100, 999);
-
-            // Print the sorted values
-            for (int i = 0; i < sorted.length; i++) {
-                if (i > 0) {
+            int[] validNumbers = new int[n];
+            int count = 0;
+            
+            for (int x : a) {
+                if (x >= 100 && x <= 999) {
+                    validNumbers[count++] = x;
+                }
+            }
+        
+            validNumbers = Arrays.copyOf(validNumbers, count);
+            Arrays.sort(validNumbers);
+        
+            for (int i = 0; i < count; i++) {
+                System.out.print(validNumbers[i]);
+                if (i < count - 1) {
                     System.out.print(" ");
                 }
-                System.out.print(sorted[i]);
             }
         }
-
-    }
-
-    // Counting sort for values in the range [low, high]
-    private static int[] countingSortInRange(int[] arr, int low, int high) {
-        int[] count = new int[high - low + 1];
-
-        // Count the occurrences of each value within the specified range
-        for (int x : arr) {
-            if (x >= low && x <= high) {
-                count[x - low]++;
-            }
-        }
-
-        int index = 0;
-
-        // Determine the number of valid elements within the specified range
-        int validCount = 0;
-        for (int i = low; i <= high; i++) {
-            validCount += count[i - low];
-        }
-
-        // Reconstruct the sorted array with the exact size needed
-        int[] sorted = new int[validCount];
-        for (int i = low; i <= high; i++) {
-            while (count[i - low] > 0) {
-                sorted[index] = i;
-                index++;
-                count[i - low]--;
-            }
-        }
-
-        return sorted;
+        
+        
     }
 }
